@@ -1,0 +1,45 @@
+{
+    "name": "Hypocrisy Evaluator",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "ghcr.io/devcontainers/features/elixir:1": {},
+      "ghcr.io/devcontainers/features/node:1": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "forwardPorts": [4000, 5432, 3000],
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y inotify-tools",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "jakebecker.elixir-ls",
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "vim.vim",
+          "ms-vscode.powershell",
+          "esbenp.prettier-vscode",
+          "github.copilot",
+          "hyzeta.vscode-theme-github-light"
+        ]
+        "settings": {
+            "workbench.colorTheme": "Github Light Theme - Gray",
+            "terminal.integrated.defaultProfile.linux": "pwsh",
+            "terminal.integrated.profiles.linux": {
+                "pwsh": {
+                    "path": "/usr/local/bin/pwsh",
+                    "args": []
+                }
+            },
+            "editor.fontSize": 14,
+            "terminal.integrated.fontSize": 14,
+            "vim.useSystemClipboard": true,
+            "vim.normalModeKeyBindingsNonRecursive": [
+                {
+                    "before": [":"],
+                    "commands": ["workbench.action.showCommands"]
+                }
+            ],
+            "editor.formatOnSave": true
+        }
+      }
+    }
+  }
